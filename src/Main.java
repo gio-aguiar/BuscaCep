@@ -42,13 +42,12 @@ public class Main {
                 HttpResponse<String> response = client
                         .send(request, HttpResponse.BodyHandlers.ofString());
 
-
                 String jsonCorpo = response.body();
 
                 Endereco cep = gson.fromJson(jsonCorpo, Endereco.class);
                 System.out.println(cep.toString());
-
-            } catch (NumberFormatException ex) {
+            }
+            catch (RuntimeException ex) {
                 System.out.println("Aconteceu um erro");
                 System.out.println(ex.getMessage());
             }

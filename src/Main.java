@@ -46,15 +46,15 @@ public class Main {
 
                 Endereco cep = gson.fromJson(jsonCorpo, Endereco.class);
                 System.out.println(cep.toString());
+
+                SalvarArquivos salvarArquivos = new SalvarArquivos();
+                salvarArquivos.salvaJson(cep);
             }
             catch (RuntimeException ex) {
                 System.out.println("Aconteceu um erro");
                 System.out.println(ex.getMessage());
             }
         }
-        FileWriter escrita = new FileWriter("enderecos.json");
-        escrita.write(gson.toJson(enderecos));
-        escrita.close();
         System.out.println("Programa finalizado corretamente");
     }
 }
